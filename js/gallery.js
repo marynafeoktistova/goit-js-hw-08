@@ -39,7 +39,7 @@ const images = [
 
 
 const refs = {
-   imagesList: document.querySelector ('.gallery')
+  imagesList: document.querySelector('.gallery')
 }
 
 function imageTemplate({ preview, original, description }) {
@@ -61,7 +61,6 @@ function imagesTemplate(images) {
 
 refs.imagesList.innerHTML = imagesTemplate(images);
 
-console.log(imagesTemplate(images));
 
 refs.imagesList.addEventListener('click', event => {
   event.preventDefault();
@@ -69,4 +68,16 @@ refs.imagesList.addEventListener('click', event => {
 
   const largeImageURL = event.target.dataset.source;
   console.log('Велике зображення:', largeImageURL);
+  const imageAlt = event.target.alt;
+
+  const instance = basicLightbox.create(
+    `<img src="${largeImageURL}" alt="${imageAlt}" width="1112px">`);
+  instance.show();
 });
+
+
+  
+
+
+
+
